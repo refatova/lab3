@@ -17,6 +17,8 @@ public interface HomePageView extends IsWidget {
 
     public interface Presenter {
         void goTo(Place place);
+
+
     }
 }
 

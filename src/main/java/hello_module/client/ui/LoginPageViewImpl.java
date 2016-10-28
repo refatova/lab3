@@ -23,7 +23,7 @@ public class LoginPageViewImpl extends Composite implements LoginPageView {
     interface LoginBinderUiBinder extends UiBinder<Widget, LoginPageViewImpl> {
     }
     private static LoginBinderUiBinder ourUiBinder = GWT.create(LoginBinderUiBinder.class);
-    private final LoginServiceIntfAsync loginService = GWT.create(LoginServiceIntf.class);
+
     private GWTHelloConstants constants = GWT.create(GWTHelloConstants.class);
     private static Logger logger = Logger.getLogger(LoginPageViewImpl.class.getName());
     private static final String LOGIN_PAGE = "LoginPage: ";
@@ -94,7 +94,7 @@ public class LoginPageViewImpl extends Composite implements LoginPageView {
         String passwordToServer = passwordTextBox.getText();
         if (!loginToServer.isEmpty() && !passwordToServer.isEmpty()) {
             setLoginButtonEnable(false);
-            sendUserToServer(loginToServer, passwordToServer);
+            presenter.sendUserToServer(loginToServer, passwordToServer);
             logger.info(LOGIN_PAGE +"Login "+ loginToServer + " "+ " were sent to server");
         } else {
             logger.info(LOGIN_PAGE + "Error message \"Login and password fields are empty\"");
@@ -109,22 +109,6 @@ public class LoginPageViewImpl extends Composite implements LoginPageView {
         logger.info(LOGIN_PAGE + "Browser locale is " + LocaleInfo.getCurrentLocale().getLocaleName());
     }
 
-    private void sendUserToServer(String login, String password) {
-        loginService.login(login, password, LocaleInfo.getCurrentLocale().getLocaleName(),
-                new AsyncCallback<String>() {
-                    @Override
-                    public void onFailure(Throwable caught) {
-                        setErrorMessage(constants.serverError());
-                        logger.info(LOGIN_PAGE + "Error message \"Incorrect username or password\"");
-                        setLoginButtonEnable(true);
-                    }
-
-                    @Override
-                    public void onSuccess(String result) {
-                        presenter.goTo(new HomePlace(result));
-                    }
-                });
-    }
 
 
 }

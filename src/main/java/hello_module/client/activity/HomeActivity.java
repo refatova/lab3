@@ -35,4 +35,5 @@ public class HomeActivity extends AbstractActivity implements HomePageView.Prese
     public void goTo(Place place) {
         clientFactory.getPlaceController().goTo(place);
     }
+
 }
