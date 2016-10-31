@@ -2,16 +2,11 @@ package hello_module.client.ui;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
-import hello_module.client.LoginServiceIntf;
-import hello_module.client.LoginServiceIntfAsync;
-import hello_module.client.place.HomePlace;
 
 import java.util.logging.Logger;
 
@@ -60,6 +55,7 @@ public class LoginPageViewImpl extends Composite implements LoginPageView {
     public void setErrorMessage(String message) {
         errorMessage.setText(message);
     }
+
 
     @Override
     public void setPresenter(Presenter presenter) {

@@ -22,6 +22,15 @@
         <setting name="webFacet" value="Web" />
       </configuration>
     </facet>
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map>
+          <unit-entry name="hibernate.cfg.xml" />
+        </datasource-map>
+        <naming-strategy-map />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate.cfg.xml" />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/gwtHello-1.0-SNAPSHOT/WEB-INF/classes" />
@@ -89,6 +98,11 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.mortbay.jasper:apache-jsp:8.0.9.M3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.mortbay.jasper:apache-el:8.0.9.M3" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gwt-log:gwt-log:2.6.2" level="project" />
+    <orderEntry type="library" name="Maven: com.google.gwt.inject:gin:2.1.2" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject.extensions:guice-assistedinject:3.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject:guice:3.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" name="Maven: com.h2database:h2:1.4.192" level="project" />

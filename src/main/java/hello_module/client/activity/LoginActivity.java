@@ -5,13 +5,13 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.i18n.client.LocaleInfo;
 import com.google.gwt.place.shared.Place;
+import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
-import hello_module.client.ClientFactory;
+import com.google.inject.Inject;
 import hello_module.client.LoginServiceIntf;
 import hello_module.client.LoginServiceIntfAsync;
 import hello_module.client.place.HomePlace;
-import hello_module.client.place.LoginPlace;
 import hello_module.client.ui.GWTHelloConstants;
 import hello_module.client.ui.LoginPageView;
 import hello_module.client.ui.LoginPageViewImpl;
@@ -23,16 +23,17 @@ import java.util.logging.Logger;
  */
 public class LoginActivity extends AbstractActivity implements LoginPageView.Presenter {
 
-    private ClientFactory clientFactory;
     private LoginPageView loginPageView;
     private static Logger logger = Logger.getLogger(LoginPageViewImpl.class.getName());
     private final LoginServiceIntfAsync loginService = GWT.create(LoginServiceIntf.class);
     private GWTHelloConstants constants = GWT.create(GWTHelloConstants.class);
     private static final String LOGIN_PAGE = "LoginPage: ";
+    private PlaceController placeController;
 
-    public LoginActivity(LoginPlace place, ClientFactory clientFactory) {
-        this.clientFactory = clientFactory;
-        this.loginPageView=clientFactory.getLoginPageView();
+    @Inject
+    public LoginActivity(LoginPageView loginPageView,PlaceController placeController) {
+        this.placeController=placeController;
+        this.loginPageView=loginPageView;
     }
 
     @Override
@@ -50,7 +51,7 @@ public class LoginActivity extends AbstractActivity implements LoginPageView.Pre
 
     @Override
     public void goTo(Place place) {
-        clientFactory.getPlaceController().goTo(place);
+        placeController.goTo(place);
     }
 
     @Override

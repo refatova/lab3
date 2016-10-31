@@ -21,11 +21,13 @@ public class HomePageViewImpl extends Composite implements HomePageView{
     private static Logger logger = Logger.getLogger(HomePageViewImpl.class.toString());
     private static final String HOME_PAGE = "HomePage: ";
     private Presenter presenter;
-    private String greetingString;
+
+
     @UiField
     Label greetingMessage;
     @UiField
     Button returnButton;
+
 
     public HomePageViewImpl(){
         initWidget(ourUiBinder.createAndBindUi(this));
@@ -33,7 +35,6 @@ public class HomePageViewImpl extends Composite implements HomePageView{
 
     @Override
     public void setGreetingMessage(String helloString) {
-        this.greetingString=helloString;
         greetingMessage.setText(helloString);
         logger.info(HOME_PAGE + "Display message: " + helloString);
     }

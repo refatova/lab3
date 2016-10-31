@@ -3,7 +3,8 @@ package hello_module.client.mvp;
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
-import hello_module.client.ClientFactory;
+import com.google.inject.Inject;
+import com.google.inject.Provider;
 import hello_module.client.activity.HomeActivity;
 import hello_module.client.activity.LoginActivity;
 import hello_module.client.place.HomePlace;
@@ -12,22 +13,26 @@ import hello_module.client.place.LoginPlace;
 /**
  * Created by Saniye on 27.10.16.
  */
-public class AppActivityMapper  implements ActivityMapper {
+public class AppActivityMapper implements ActivityMapper {
 
-    private ClientFactory clientFactory;
+    Provider<HomeActivity> homeActivityProvider;
+    Provider<LoginActivity> loginActivityProvider;
 
-    public AppActivityMapper(ClientFactory clientFactory) {
+    @Inject
+    public AppActivityMapper(final Provider<HomeActivity> homeActivityProvider,
+                             final Provider<LoginActivity> loginActivityProvider) {
         super();
-        this.clientFactory = clientFactory;
+        this.homeActivityProvider = homeActivityProvider;
+        this.loginActivityProvider = loginActivityProvider;
     }
 
     @Override
     public Activity getActivity(Place place) {
         if (place instanceof HomePlace)
-            return new HomeActivity((HomePlace) place, clientFactory);
+            return homeActivityProvider.get().getMessage((HomePlace)place);
         else if (place instanceof LoginPlace)
-            return new LoginActivity((LoginPlace) place, clientFactory);
-
+            return loginActivityProvider.get();
         return null;
     }
+
 }

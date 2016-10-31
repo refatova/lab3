@@ -9,6 +9,11 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.google.gwt:gwt-servlet:2.8.0-rc2" />
           <element id="library" level="project" name="Maven: com.google.code.gwt-log:gwt-log:2.6.2" />
+          <element id="library" level="project" name="Maven: com.google.gwt.inject:gin:2.1.2" />
+          <element id="library" level="project" name="Maven: com.google.inject.extensions:guice-assistedinject:3.0" />
+          <element id="library" level="project" name="Maven: com.google.inject:guice:3.0" />
+          <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Maven: com.h2database:h2:1.4.192" />
           <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.4.01" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:4.3.6.Final" />
